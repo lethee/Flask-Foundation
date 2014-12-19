@@ -9,9 +9,9 @@ from appname.models import db, User
 # default to dev config because no one should use this in
 # production anyway
 env = os.environ.get('APPNAME_ENV', 'dev')
-app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+application = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
 
-manager = Manager(app)
+manager = Manager(application)
 manager.add_command("server", Server())
 manager.add_command("show-urls",ShowUrls())
 manager.add_command("clean",Clean())
